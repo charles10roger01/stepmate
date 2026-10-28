@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StepMate Model Proposal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+:root {
+  --bg: #eef3f4; --paper: #ffffff; --ink: #1b2a31; --muted: #5b6d75; --line: #d3dee1; --accent: #0b7285;
+  --p1: #e3f2f6; --p1-ink: #0b6b7d; --p2: #fbeee3; --p2-ink: #a14d12; --p3: #e8f3e6; --p3-ink: #2f7a2a;
+  --p4: #eceaf8; --p4-ink: #5141a8; --p5: #f4ecf2; --p5-ink: #8c2f6e; --mark: #fff0a8; --mark-ink: #1b2a31;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #0f1a1e; --paper: #16242a; --ink: #e6eef0; --muted: #9db0b7; --line: #2a3b42; --accent: #5cc6d8;
+  --p1: #13323a; --p1-ink: #8edbe8; --p2: #3a2618; --p2-ink: #f5b588; --p3: #1b3319; --p3-ink: #9fdc97;
+  --p4: #25223f; --p4-ink: #bdb3f5; --p5: #3a1d31; --p5-ink: #eda6d3; --mark: #5a4d12; --mark-ink: #fff6cf;
+  color-scheme: dark } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 24px 16px 40px; display: grid; gap: 20px; }
+header { display: grid; gap: 6px; }
+.eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 700; }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 8vw, 42px); line-height: 1.05; margin: 0; }
+.sub { color: var(--muted); margin: 0; font-size: 15px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; }
+.toggle { font: 700 14px var(--body); padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--accent); background: var(--accent); color: var(--paper); cursor: pointer; }
+.toggle[aria-pressed="false"] { background: transparent; color: var(--accent); }
+.proposal { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.ptitle { font-family: var(--display); font-weight: 600; font-size: 20px; margin: 0; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+.part { padding: 14px 18px; display: grid; gap: 6px; }
+.part + .part { border-top: 1px solid var(--line); }
+.tag { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tint-ink); }
+.tag .wc { letter-spacing: 0; text-transform: none; font-weight: 400; }
+.part p { margin: 0; }
+.p1 { --tint: var(--p1); --tint-ink: var(--p1-ink); }
+.p2 { --tint: var(--p2); --tint-ink: var(--p2-ink); }
+.p3 { --tint: var(--p3); --tint-ink: var(--p3-ink); }
+.p4 { --tint: var(--p4); --tint-ink: var(--p4-ink); }
+.p5 { --tint: var(--p5); --tint-ink: var(--p5-ink); }
+.show-parts .part { background: var(--tint); }
+.wrap:not(.show-parts) .tag { display: none; }
+mark { background: transparent; color: inherit; padding: 0 2px; border-radius: 3px; }
+.show-lang mark { background: var(--mark); color: var(--mark-ink); font-weight: 700; }
+.total { padding: 12px 18px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.notes { display: grid; gap: 10px; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 20px; margin: 0; }
+.notes ol { margin: 0; padding-left: 22px; display: grid; gap: 8px; }
+.warn { background: var(--paper); border: 1px dashed var(--accent); border-radius: 12px; padding: 12px 16px; margin: 0; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="wrap show-parts show-lang" id="wrap">
+  <header>
+    <div class="eyebrow">Future Computer Proposal · Model</div>
+    <h1>A model proposal: future shoes</h1>
+    <p class="sub">This model is about shoes, not computers. Look at how it is built, then write about your own computer.</p>
+  </header>
+  <div class="controls">
+    <button class="toggle" id="btn-parts" aria-pressed="true">Show the 5 parts</button>
+    <button class="toggle" id="btn-lang" aria-pressed="true">Show useful language</button>
+  </div>
+  <article class="proposal">
+    <h2 class="ptitle">Proposal: StepMate Shoes</h2>
+    <div class="part p1">
+      <div class="tag"><span>1 · Name and user</span><span class="wc">22 words</span></div>
+      <p><mark>My future shoes are called</mark> StepMate. <mark>They are for</mark> older people who live alone and still want to go out every day.</p>
+    </div>
+    <div class="part p2">
+      <div class="tag"><span>2 · The problem today</span><span class="wc">28 words</span></div>
+      <p><mark>Today, many</mark> older people are afraid of falling when they walk outside. If they fall, nobody may see them, and they cannot always call their family for help.</p>
+    </div>
+    <div class="part p3">
+      <div class="tag"><span>3 · Feature 1 + how it helps</span><span class="wc">38 words</span></div>
+      <p><mark>First,</mark> StepMate shoes <mark>can</mark> feel the ground. When the road is wet or uneven, the shoes <mark>will</mark> shake gently <mark>so that</mark> the user can slow down. <mark>This helps people</mark> walk more safely in the rain and at night.</p>
+    </div>
+    <div class="part p4">
+      <div class="tag"><span>4 · Feature 2 + how it helps</span><span class="wc">39 words</span></div>
+      <p><mark>Second,</mark> the shoes <mark>will</mark> connect to the user's phone. If the user falls, StepMate <mark>can</mark> send a message and the location to family members in five seconds. <mark>Users will be able to</mark> get help even when they cannot speak.</p>
+    </div>
+    <div class="part p5">
+      <div class="tag"><span>5 · Why it is better</span><span class="wc">22 words</span></div>
+      <p>StepMate shoes are <mark>lighter and smarter than</mark> today's shoes. With them, older people can enjoy their walks and worry less about falling.</p>
+    </div>
+    <div class="total">Total: 149 words</div>
+  </article>
+  <section class="notes">
+    <h2>What to notice</h2>
+    <ol>
+      <li>The writer starts with a <strong>person and a problem</strong>. The features come after the problem.</li>
+      <li>Each feature has two sentences: <strong>what it does</strong>, then <strong>how it helps</strong> the user.</li>
+      <li><strong>First</strong> and <strong>Second</strong> tell the reader where each feature begins.</li>
+      <li>The last part compares the shoes with <strong>today's</strong> shoes.</li>
+    </ol>
+    <p class="warn">Do not copy these sentences. Use the same five parts and the useful language, but write about <strong>your</strong> computer and <strong>your</strong> user.</p>
+  </section>
+</div>
+<script>
+(function () {
+  var wrap = document.getElementById('wrap');
+  function wire(id, cls) {
+    var b = document.getElementById(id);
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', String(on));
+      wrap.classList.toggle(cls, on);
+    });
+  }
+  wire('btn-parts', 'show-parts');
+  wire('btn-lang', 'show-lang');
+})();
+</script>
+</body>
+</html>
